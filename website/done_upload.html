@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>  STM32 OTA Website </title>
+
+    <script src="https://kit.fontawesome.com/8b2369d313.js" crossorigin="anonymous"></script>
+    <!-- for icons visit https://fontawesome.com/ -->
+
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+
+    <h1>STM32 OTA Website</h1>
+
+      <!-- The Uploading Section -->
+
+
+
+
+      <!-- The Uploading Section -->
+
+    <div class = " center">
+
+      <br><br>
+      <p>  Select hex file to upload:</p>
+
+      <li >
+        <strong style ="color: red; " > TODO: </strong> before compiler the project remember to change the flash size to
+        <br>
+        <code style="background-color: lightblue; color: gray; padding: 4px;">FLASH (rx) : ORIGIN = 0x08002400, LENGTH = 55K</code>
+      </li>
+      <br><br>
+    </div>
+    <br><br><br><br><br>
+
+    <div class = " center">
+
+      <form action="start_flash.php" method="post" enctype="multipart/form-data">
+         <div class='file file--submit'>
+            <label for='flash'>
+              <i class="fas fa-microchip"></i> Burn code
+            </label>
+            <input type='submit' id='flash' name='flash' value='ok'>
+         </div>
+      </form>
+    </div>
+
+   <div class="bottomright">
+     <p1>It is implemented by<br> Islam Abdo</p1>
+   </div>
+
+
+
+   </body>
+ </html>

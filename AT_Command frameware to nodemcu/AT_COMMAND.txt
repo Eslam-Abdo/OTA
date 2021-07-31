@@ -1,0 +1,33 @@
+/* test AT */
+AT
+
+/* turn off echo */
+ATE0
+
+/* software reset */
+AT+RST
+
+/* station mode */
+AT+CWMODE=1
+
+/* set user & password  (connect on WIFI) */
+AT+CWJAP="Islam","islam99
+
+/* connect on server */
+AT+CIPSTART="TCP","162.253.155.226",80
+
+
+/* send data length */
+AT+CIPSEND=60
+/* send data */
+GET http://iot-arm.freevar.com/start_flash.php?config=none
+
+/* connect on server */
+AT+CIPSTART="TCP","162.253.155.226",80
+
+/* send data length */
+AT+CIPSEND=58
+/* send data */
+GET http://iot-arm.freevar.com/start_flash.php?config=ok
+
+
