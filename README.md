@@ -20,7 +20,7 @@ using the Bootloader flashed on the first 9 kB of Flash Memory.
 
 
 ## The project is divided into three mini-projects
-### 1. Website
+### 1. [Website](http://iot-arm.freevar.com/)
 The website is responsible for letting the user upload a .hex file to Server to be ready to be received by NodeMCU.
 The website only allows ```.hex``` to be uploaded.
 
@@ -39,7 +39,7 @@ On reset, STM Bootloader waits for 5 seconds if there is any code received from 
 Once it finished, it will run the application code after 5 seconds.
 If no code received from NodeMCU for 5 seconds, it will jump to latest flashed application code.
 - **NOTE:**  
-  - you need to edit SSID & PASSWORD  (and if needed IP & Website) in ```main.c``` file.
+  - you need to edit SSID & PASSWORD  (and if needed IPserver & Website) in ```main.h``` file.
   - I used local PHP Server because the free online server take much time to flash the code.
   - size of Bootloader changed in ```FPEC_config.h``` file.
 ## AT-COMMAND for Esp8266/nodemcu
