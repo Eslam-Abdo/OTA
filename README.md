@@ -1,7 +1,7 @@
 # OTA (Upload Over The Air) for STM32F103
 This project is implemented to program BlueBill Board (STM32 Micro-controller)
 over the air using a website with ```PHP``` and NodeMCU board to get the code
-from internet and sending it to STM to write it into the Flash Memory
+from the internet and sending it to STM to write it into the Flash Memory
 using the Bootloader flashed on the first 9 kB of Flash Memory.
 
 
