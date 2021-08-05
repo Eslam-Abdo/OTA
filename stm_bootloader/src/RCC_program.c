@@ -13,9 +13,14 @@
 void RCC_voidInitSysClock(void)
 {
     #if     RCC_CLOCK_TYPE == RCC_HSI
-        CLR_BIT(RCC_CFGR,0);     /* HSI selected as system clock */
-        CLR_BIT(RCC_CFGR,1);
-    	CLR_BIT(RCC_CR, 0);	   /* Enable HSI + Trimming = 0 */
+       // CLR_BIT(RCC_CFGR,0);     /* HSI selected as system clock */
+        //CLR_BIT(RCC_CFGR,1);
+				//SET_BIT(RCC_CR, 0);	   /* Enable HSI + Trimming = 0 */
+				//SET_BIT(RCC_CR, 7);
+	
+   	RCC_CR   = 0x00000081; /* Enable HSI + Trimming = 0 */
+		RCC_CFGR = 0x00000000;
+	
     #elif   RCC_CLOCK_TYPE == RCC_HSE_CRYSTAL
         SET_BIT(RCC_CFGR,0);	  /* HSE selected as system clock */
         CLR_BIT(RCC_CFGR,1);     

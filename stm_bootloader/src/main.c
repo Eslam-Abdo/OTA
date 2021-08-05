@@ -1,9 +1,3 @@
-/*********************************************************************************/
-/* Author    : Islam Abdo                                                        */
-/* Version   : V02                                                               */
-/* Date      : 31 July 2021                                                      */
-/*********************************************************************************/
-
 #include "STD_TYPES.h"
 #include "BIT_MATH.h"
 
@@ -14,6 +8,8 @@
 
 #include "ESP8266_interface.h"
 #include "FPEC_interface.h"
+
+#include "main.h"
 
 void Parser_voidParseRecord(uint8* Copy_u8BufData);
 void clear_data(uint8* data_cleared);
@@ -48,8 +44,8 @@ int main()
 	RCC_voidEnableClock(RCC_AHB ,AHB_FLITF_EN); /*ENABLE FPEC */
 	
 	
-	//RCC_voidEnableClock(RCC_APB2,APB2_GPIOB_EN);  /*ENABLE PORTB AS IO PINS*/
-	//RCC_voidEnableClock(RCC_APB1,APB1_USART3_EN); /*ENABLE USART3 */
+	RCC_voidEnableClock(RCC_APB2,APB2_GPIOB_EN);  /*ENABLE PORTB AS IO PINS*/
+	RCC_voidEnableClock(RCC_APB1,APB1_USART3_EN); /*ENABLE USART3 */
 	
 	
 	STK_voidInit();
@@ -59,11 +55,12 @@ int main()
 	//USART_voidInit(UART3,9600);
 	
 	ESP8266_voidResetESP();
-	//ESP8266_voidConnectToWiFi("Islam","islam999");
-	ESP8266_voidConnectToserver("192.168.1.11");
-  ESP8266_voidSendData("192.168.1.11","53","http://192.168.1.11/upload_file/start_flash.php",data);
+	//ESP8266_voidConnectToWiFi(SSID,PASSWORD);
+	
+	ESP8266_voidConnectToserver(IPserver);
+  ESP8266_voidSendData(IPserver,"53","http://192.168.1.11/upload_file/start_flash.php",data);
 	GetNewRecordLine();
-	STK_voidSetIntervalSingle((35*1000*1000),func); /* 35 sec */
+	STK_voidSetIntervalSingle((5*1000*1000),func); /* 35 sec */
 	
 	uint8 Local_u8RecStatus;
 	
@@ -96,7 +93,7 @@ int main()
 			/* No file to burn */
 		}
 			
-		STK_voidSetIntervalSingle((30*1000*1000),func); /* 5 sec */
+		STK_voidSetIntervalSingle((5*1000*1000),func); /* 5 sec */
 			
 	}
 	
@@ -119,14 +116,14 @@ void GetNewRecordLine(void)
 	if(error == 0)
 	{
 		clear_data(data);
-		ESP8266_voidSendData("192.168.1.11","63","http://192.168.1.11/upload_file/start_flash.php?config=ok",data);
+		ESP8266_voidSendData(IPserver,"63","http://192.168.1.11/upload_file/start_flash.php?config=ok",data);
 		
 		while(strcmp(data,"") == 0)
 		{
 			ESP8266_voidResetESP();
 			clear_data(data);
-			ESP8266_voidConnectToserver("192.168.1.11");
-			ESP8266_voidSendData("192.168.1.11","65","http://192.168.1.11/upload_file/start_flash.php?config=none",data);
+			ESP8266_voidConnectToserver(IPserver);
+			ESP8266_voidSendData(IPserver,"65","http://192.168.1.11/upload_file/start_flash.php?config=none",data);
 		}
 	}
 }
@@ -144,4 +141,3 @@ void copy_pureData(void)
 	}
 	u8RecCounter = 0;
 }
-

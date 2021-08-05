@@ -77,7 +77,7 @@ void ParseUpperAddress(u8* Copy_u8BufData)
 
 	/* Clear High Part of Address */
 	Address = Address & 0x0000FFFF;
-	Address = Address | ((DataDigit3 << 28) | (DataDigit2 << 24) | (DataDigit1 << 20) | (DataDigit0 << 16));
+	Address = Address | ((DataDigit0 << 28) | (DataDigit1 << 24) | (DataDigit2 << 20) | (DataDigit3 << 16));
 
 }
 

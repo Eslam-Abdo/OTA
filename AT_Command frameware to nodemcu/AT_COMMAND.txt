@@ -11,7 +11,7 @@ AT+RST
 AT+CWMODE=1
 
 /* set user & password  (connect on WIFI) */
-AT+CWJAP="Islam","islam99
+AT+CWJAP="Islam","islam99"
 
 /* connect on server */
 AT+CIPSTART="TCP","162.253.155.226",80

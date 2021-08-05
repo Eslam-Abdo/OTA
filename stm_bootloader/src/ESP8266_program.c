@@ -388,7 +388,7 @@ void ESP8266_voidDebugOutput(uint8* local_u8DebugData)
 	USART_voidTransmit(DEBUG_UART,"\n",STRING);
 	USART_voidTransmit(DEBUG_UART,local_u8DebugData,STRING);
 	#else
-	USART_voidTransmit(DEBUG_UART,".",STRING);
+	//USART_voidTransmit(DEBUG_UART,".",STRING);
 	
 	#endif
 }
