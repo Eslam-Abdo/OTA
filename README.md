@@ -4,6 +4,11 @@ over the air using a website with ```PHP``` and NodeMCU board to get the code
 from internet for sending it to STM to write it to the Flash Memory
 using the Bootloader flashed on the first 9 kB of Flash Memory.
 
+
+## project video [*(click here)*](https://youtu.be/M2U45CHqeEk)
+[![final-project](./OTA-video.png)](https://youtu.be/M2U45CHqeEk)
+
+
 ## Hardware Required
 - STM32F103 BlueBill Board
 - NodeMCU V1.0 Board
